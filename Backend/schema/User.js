@@ -1,15 +1,16 @@
 const mongoose = require("mongoose");
 
 const UserSchema = new mongoose.Schema({
-  UserName: {
+
+  username: {
     type: String
   },
-  Password: {
+  password: {
     type: String
   },
-  Plants: {
-    type: Array
-  },
+  plants: [
+    { type: mongoose.Schema.Types.ObjectId, ref: 'Plants' }
+  ],
   token: {
     type: String,
   }

@@ -1,13 +1,13 @@
 // this file is for routes, end points
 const express = require("express")
 const router = express.Router(); 
-const users = require("./Controller")
+const plants = require("./Controller")
 
-// router.get("/todos", todos.getAlltodos);
-// router.post("/todos/create", todos.createTodo);
-// router.get("/todos/:id", todos.getTodoById);
-// router.delete("/todos/:id", todos.deleteTodo);
-// router.put("/todos/:id", todos.updateTodo);
+router.get("/plants", plants.getAllPlants);
+router.post("/plants/create", plants.createPlant);
+// router.get("/plants/:id", plants.getTodoById);
+// router.delete("/plants/:id", plants.deletePlant);
+// router.put("/plants/:id", plants.updatePlant);
 
 module.exports = router;
 

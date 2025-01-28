@@ -20,7 +20,7 @@ app.use(express.json());
 
 // checks for user 
 // we can use https error library here
-app.post("/todos/auth", async (req, res) => {
+app.post("/plants/auth", async (req, res) => {
     console.log("arrived");
     const user = await User.findOne({ username: req.body.username });
     if (!user) {
