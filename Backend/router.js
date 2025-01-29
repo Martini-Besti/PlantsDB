@@ -5,9 +5,9 @@ const plants = require("./Controller")
 
 router.get("/plants", plants.getAllPlants);
 router.post("/plants/create", plants.createPlant);
-// router.get("/plants/:id", plants.getTodoById);
-// router.delete("/plants/:id", plants.deletePlant);
-// router.put("/plants/:id", plants.updatePlant);
+router.get("/plants/currentuser", plants.getPlantsByUser);
+router.delete("/plants/:id", plants.deletePlant);
+router.put("/plants/:id", plants.updatePlant);
 
 module.exports = router;
 
