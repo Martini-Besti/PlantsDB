@@ -2,6 +2,7 @@
 "use client";
 import { useState } from "react";
 import { useRouter } from "next/navigation"; // Import useRouter hook
+import { FiDroplet, FiEdit2, FiTrash2 } from 'react-icons/fi';
 
 const Login = ({ login, client }) => {
   const [disabled, setDisabled] = useState(false);
@@ -24,23 +25,47 @@ const Login = ({ login, client }) => {
   };
 
   return (
-    <div>
-      <form onSubmit={submitHandler}>
-        <div className="block text-[#283618] text-lg font-medium mb-2">
-          <label htmlFor="username">
-            Username
-          </label>
-          <input id="username" name="username" type="text" required />
+    
+    <div className="flex justify-center items-center min-h-screen bg-[#FEFAE0]">
+ <div className="flex items-center gap-2">
+          <FiDroplet className="text-blue-500" size={200} />
+        
         </div>
-        <div>
-          <label htmlFor="password">Password</label>
-          <input id="password" name="password" type="password" required />
-        </div>
-        <button type="submit" disabled={disabled}>
-          {disabled ? "Signing in..." : "Sign in"}
-        </button>
-      </form>
+  <form onSubmit={submitHandler} className="bg-white p-6 rounded-lg shadow-lg w-96">
+    <div className="mb-4">
+      <label htmlFor="username" className="block text-[#283618] text-lg font-medium mb-2">
+        Username
+      </label>
+      <input 
+        id="username" 
+        name="username" 
+        type="text" 
+        required 
+        className="w-full px-4 py-2 border border-[#283618] rounded-md focus:outline-none focus:ring-2 focus:ring-[#606C38] bg-[#FEFAE0]"
+      />
     </div>
+    <div className="mb-6">
+      <label htmlFor="password" className="block text-[#283618] text-lg font-medium mb-2">
+        Password
+      </label>
+      <input 
+        id="password" 
+        name="password" 
+        type="password" 
+        required 
+        className="w-full px-4 py-2 border border-[#283618] rounded-md focus:outline-none focus:ring-2 focus:ring-[#606C38] bg-[#FEFAE0]"
+      />
+    </div>
+    <button 
+      type="submit" 
+      disabled={disabled} 
+      className={`w-full py-2 rounded-md text-white font-semibold ${disabled ? 'bg-[#DDA15E]' : 'bg-[#606C38] hover:bg-[#283618]'}`}
+    >
+      {disabled ? "Signing in..." : "Sign in"}
+    </button>
+  </form>
+</div>
+
   );
 };
 

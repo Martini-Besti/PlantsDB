@@ -18,7 +18,8 @@ exports.createPlant = async (req, res, next) => {
     console.log(req.headers["authorization"])
     const { name, watering } = req.body;
 
-    const user = User.find({ token: req.headers['authorization'] });
+    const user = await User.find({ token: req.headers['authorization'] });
+    console.log(user)
 
     // fetch the user using the token in the headers
     // then with the user you retreive, grab the id and pass it to the plant below
@@ -26,8 +27,9 @@ exports.createPlant = async (req, res, next) => {
     const newPlant = await Plant.create({
       name,
       watering,
-      user: user.id
+      user: user[0]._id
     });
+    console.log(newPlant)
     res.send(newPlant);
   } catch (error) {
     next(createError(500, error.message));
@@ -41,7 +43,7 @@ exports.getPlantsByUser = async (req, res, next) => {
   try {
 
     const user = await User.find({ token: req.headers['authorization'] });
-    const plant = await Plant.find({ user: user.id });
+    const plant = await Plant.find({ user: user[0]._id }).populate("user");
     
     if (!plant) {
       return next(createError(404, "no plant with that id"));
