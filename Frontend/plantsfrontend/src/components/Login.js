@@ -16,7 +16,7 @@ const Login = ({ login, client }) => {
       login(response.data.token);
       
       // Redirect to the dashboard after successful login
-      router.push("/dashboard");
+      //router.push("/dashboard");
     } catch (error) {
       console.error("Login failed:", error);
       setDisabled(false); // Enable the button again in case of error

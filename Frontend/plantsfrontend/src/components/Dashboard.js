@@ -1,9 +1,13 @@
+"use client"
+import React, { useEffect, useState } from 'react'
 
-"use client";
-import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 
+import AddForm from'@/components/AddForm'
+import PlantCard from '@/components/PlantCard'
+
 const Dashboard = () => {
+
   const router = useRouter();
 
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -25,10 +29,10 @@ const Dashboard = () => {
 
   return (
     <div>
-      <h1>Welcome to the Dashboard</h1>
-      <p>You are successfully logged in.</p>
+        <AddForm />
+        <PlantCard />
     </div>
-  );
-};
+  )
+}
 
-export default Dashboard;
+export default Dashboard
