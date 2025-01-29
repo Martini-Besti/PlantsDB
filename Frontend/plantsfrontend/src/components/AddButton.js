@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 const AddButton = () => {
 
@@ -11,7 +11,7 @@ const AddButton = () => {
 
   return (
     <button
-      className=''
+      className='bg-red-500'
       onSubmit={setIsFormVisible}
     >
       Add New Plant

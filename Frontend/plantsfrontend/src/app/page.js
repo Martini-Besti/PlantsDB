@@ -50,12 +50,13 @@ export default function Home() {
     router.push("/"); // Redirect back to login page
   };
 
+  const client = new ApiClient(() => token, logout);
+
   useEffect(() => {
     const storedToken = localStorage.getItem("token");
     setToken(storedToken);
   }, []);
 
-  const client = new ApiClient(() => token, logout);
 
   // If there's a token, render the Dashboard directly
   if (token) {
@@ -64,14 +65,17 @@ export default function Home() {
         {/* Render Dashboard or other protected content here */}
         {/* <div>Welcome back! You are logged in.</div>
         <button onClick={logout}>Logout</button> */}
-        <Dashboard />
+        <Dashboard 
+        
+          client={client}
+        />
       </div>
     );
   }
 
   // Otherwise, show the login form
   return (
-    <div className="bg-red-500">
+    <div>
       <Login client={client} login={login} />
     </div>
   );

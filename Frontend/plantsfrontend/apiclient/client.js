@@ -1,10 +1,7 @@
 import axios from "axios";
 const url = "http://localhost:3001/plants/";
 
-
-
 //3001 because back end runs on 3001, front end runs on 3000
-
 
 export class ApiClient {
   constructor(tokenProvider, logoutHandler) {
@@ -12,14 +9,11 @@ export class ApiClient {
     this.logoutHandler = logoutHandler;
   }
 
-
-
   async authenticatedCall(method, url, data) {
     return axios({
       method,
       url,
       headers: {
-
         //grab the token from local storage and send it with the request
         authorization: this.tokenProvider(),
       },
@@ -35,11 +29,15 @@ export class ApiClient {
     });
   }
 
+  getPlants() {
+    return this.authenticatedCall("get", `${url}currentuser`)
+  }
+
   getTodos() {
     return this.authenticatedCall("get", url);
   }
 
-  addTodo(data) {
+  addPlant(data) {
     return this.authenticatedCall("post", `${url}create`, {
       title: data.title,
       completed: data.completed
