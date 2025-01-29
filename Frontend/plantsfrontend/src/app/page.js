@@ -34,7 +34,6 @@ import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation"; // Import useRouter for navigation
 import Dashboard from "@/components/Dashboard";
 
-
 export default function Home() {
   const router = useRouter();
   const [token, setToken] = useState(null);
@@ -42,7 +41,7 @@ export default function Home() {
   const login = (newToken) => {
     localStorage.setItem("token", newToken);
     setToken(newToken);
-    router.push("/dashboard"); // Redirect to dashboard after login
+    //router.push("/dashboard"); // Redirect to dashboard after login
   };
 
   const logout = () => {
