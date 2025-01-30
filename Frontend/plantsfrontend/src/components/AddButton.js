@@ -1,21 +1,16 @@
 import React, { useState } from 'react'
 
-const AddButton = () => {
-
-  const [isFormVisible, setIsFormVisible] = useState(false)
-
-  const submitForm = (name, watering) => {
-    //ADD TO DATABASE
-    setFormVisible(false)
-  }
+const AddButton = ( { showFunction } ) => {
 
   return (
+    <div className ='flex justify-center font-bold'>
     <button
-      className='bg-red-500'
-      onSubmit={setIsFormVisible}
+      className='bg-[#606C38] border-solid border-2 border-[#283618] px-8 py-2 rounded-xl text-[#FEFAE0] m-4'
+      onClick={showFunction}
     >
       Add New Plant
     </button>
+    </div>
   )
 
 }
