@@ -33,7 +33,12 @@ The application consists of a **front-end** built using React and Next.js, and a
 - **JWT (JSON Web Token)**: For secure authentication.
   
 ---
+## Demo
 
+You can view the deployed version of the Event App by entering the following credentials:
+
+- **Username**: Test
+- **Password**: 111
 ## File Structure
 
 The project consists of two main parts: the **Backend** and **Frontend**.
@@ -76,3 +81,5 @@ Frontend
 │   ├── package-lock.json       # Dependency lock file for frontend
 │   ├── package.json            # Metadata and dependencies for frontend
 │   └── README.md               # Frontend documentation
+
+
