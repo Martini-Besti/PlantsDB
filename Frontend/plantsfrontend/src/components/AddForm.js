@@ -2,13 +2,7 @@ import React from 'react'
 
 import AddInput from './AddForm/AddInput'
 
-const AddForm = ( { client } ) => {
-
-  const submitForm = async (e) => {
-    e.preventDefault()
-    // pass the data from the form to this method to send it to the database. 
-    await client.addPlant()
-  }
+const AddForm = ( { client, submitFunction, hideFunction } ) => {
 
   return (
     <div
@@ -16,8 +10,17 @@ const AddForm = ( { client } ) => {
     >
       <form
         className='bg-[#663B15] p-4 rounded-2xl border-solid border-black border-4 font-bold text-md text-[#FEFAE0] text-center shadow-l'
-        onSubmit={submitForm}
+        onSubmit={submitFunction}
       >
+        <p className='w-[100%] text-right pb-2'>
+        <button 
+          className='text-[#FEFAE0] text-md'
+          onClick={hideFunction}
+          >
+            X
+          </button>
+          </p>
+
         <AddInput name='Plant Name' />
         <AddInput name='Watering Frequency (Days)'/>
 

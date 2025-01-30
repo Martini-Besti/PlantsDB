@@ -1,18 +1,10 @@
-// import React from 'react'
-
-// const PlantCard = () => {
-//   return (
-//     <div>PlantCard</div>
-//   )
-// }
-
-// export default PlantCard
 
 
 import React from 'react';
 import { FiDroplet, FiEdit2, FiTrash2 } from 'react-icons/fi';
 
-const PlantCard = ({ plantName, plantImage, daysUntilWater, onUpdate, onDelete }) => {
+
+const PlantCard = ({ plantName, plantImage, daysUntilWater, onUpdate, deletePlant }) => {
   return (
     <div className="border rounded-lg shadow-md p-4 flex items-center gap-4 bg-[#FEFAE0]">
       {/* Image Section */}
@@ -41,7 +33,7 @@ const PlantCard = ({ plantName, plantImage, daysUntilWater, onUpdate, onDelete }
           <FiEdit2 /> Update
         </button>
         <button
-          onClick={onDelete}
+          onClick={deletePlant}
           className="flex items-center gap-1 bg-[#DDA15E] text-white px-3 py-1 rounded-lg hover:bg-[#D19148]"
         >
           <FiTrash2 /> Delete

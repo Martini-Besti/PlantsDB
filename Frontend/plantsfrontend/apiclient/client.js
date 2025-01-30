@@ -33,15 +33,16 @@ export class ApiClient {
     return this.authenticatedCall("get", `${url}currentuser`)
   }
 
-  getTodos() {
-    return this.authenticatedCall("get", url);
-  }
 
   addPlant(data) {
     return this.authenticatedCall("post", `${url}create`, {
-      title: data.title,
-      completed: data.completed
+      name: data.name,
+      watering: data.watering
     });
+  }
+
+  deletePlant(id) {
+    return this.authenticatedCall("delete", `${url}${id}`);
   }
 
   async login(username, password) {
