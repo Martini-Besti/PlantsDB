@@ -1,4 +1,5 @@
 import axios from "axios";
+// const url = "http://localhost:3001/plants/";
 const url = "https://plantsdb-3fte.onrender.com/plants/";
 
 //3001 because back end runs on 3001, front end runs on 3000
@@ -19,7 +20,7 @@ export class ApiClient {
       },
       data,
     }).catch((error) => {
-      if (error.response.status === 403) {
+      if (error.response?.status === 403) {
        //clears the local storage
         this.logoutHandler();
         return Promise.reject();
@@ -34,12 +35,14 @@ export class ApiClient {
   }
 
 
-  addPlant(data) {
-    return this.authenticatedCall("post", `${url}create`, {
+  async addPlant(data) {
+    
+    return await this.authenticatedCall("post", `${url}create`, {
       name: data.name,
-      watering: data.watering
+      watering: data.watering,
     });
   }
+
 
   deletePlant(id) {
     return this.authenticatedCall("delete", `${url}${id}`);

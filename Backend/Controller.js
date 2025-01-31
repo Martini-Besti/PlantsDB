@@ -27,7 +27,9 @@ exports.createPlant = async (req, res, next) => {
     const newPlant = await Plant.create({
       name,
       watering,
-      user: user[0]._id
+      user: user[0]._id,
+      lastWatered: new Date(), // Set the current date as the last watered date
+
     });
     console.log(newPlant)
     res.send(newPlant);
@@ -36,6 +38,8 @@ exports.createPlant = async (req, res, next) => {
   }
 
 };
+
+
 
 //from class:
 
