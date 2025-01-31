@@ -54,6 +54,7 @@ const Dashboard = ({client}) => {
     )
 
     fetchData()
+    setIsFormVisible(false)
     
   }
 
@@ -106,6 +107,7 @@ const Dashboard = ({client}) => {
             key={plant._id}
             plantName={plant.name} 
             daysUntilWater={plant.watering}
+            lastWatered={plant.lastWatered}
             deletePlant={() => deletePlant(plant._id)}/>
           ))
 

@@ -3,8 +3,16 @@
 import React from 'react';
 import { FiDroplet, FiEdit2, FiTrash2 } from 'react-icons/fi';
 
+const PlantCard = ({ plantName, plantImage, daysUntilWater, lastWatered, onUpdate, deletePlant }) => {
 
-const PlantCard = ({ plantName, plantImage, daysUntilWater, onUpdate, deletePlant }) => {
+  var lastWateredDate = Date.parse(String(lastWatered));
+  var date = new Date(lastWateredDate)
+  //console.log(lastWatered)
+
+  date.setDate(date.getDate() + daysUntilWater)
+
+  const wateringDay = date.getDate() + "/" + (date.getMonth() + 1).toString() + "/" + date.getFullYear().toString()
+
   return (
     <div className="border rounded-lg shadow-md p-4 flex items-center gap-4 bg-[#FEFAE0]">
       {/* Image Section */}
@@ -19,10 +27,19 @@ const PlantCard = ({ plantName, plantImage, daysUntilWater, onUpdate, deletePlan
           <FiDroplet className="text-blue-500" size={36} />
           <h2 className="text-xl font-semibold">{plantName}</h2>
         </div>
+        
+        <p>{`You need to water your plant on: ${wateringDay} `}</p>
+        
         <p className="text-black">
-          {daysUntilWater > 0 ? `Water in ${daysUntilWater} days` : 'Needs watering today!'}
+          {daysUntilWater > 0 ? `Watering schedule: Every ${daysUntilWater} days` : 'Needs watering today!'}
         </p>
+        
+       
+
       </div>
+
+
+
 
       {/* Action Buttons */}
       <div className="flex gap-2">

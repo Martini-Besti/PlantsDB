@@ -1,11 +1,12 @@
-const mongoose = require('mongoose');
+
+const mongoose = require("mongoose");
 const { Schema } = mongoose;
 
 const plantSchema = Schema({
-
   name: String,
-  watering: Number,
-  user: { type: Schema.Types.ObjectId, ref: 'User' }  // Reference to the user that owns the plant
+  watering: Number, // Frequency of watering in days
+  lastWatered: { type: Date }, // Track last watered date
+  user: { type: Schema.Types.ObjectId, ref: "User" },
 });
 
 module.exports = mongoose.model("Plants", plantSchema);
